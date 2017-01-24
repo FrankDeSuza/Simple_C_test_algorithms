@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+#define swap_char(x,y) {*x ^= *y; *y ^= *x; *x ^= *y;}
+
+void permute(char *str, int S, int E)
+{
+   if (S == E)
+   {
+      printf("%s\n", str);
+   }
+   else
+   {
+      int i;
+
+      for (i = S; i < E; i++)
+      {
+         swap_char(str + S, str + i)
+         permute(str, S + 1, E);
+         swap_char(str + S, str + i)
+      }
+   }
+}
