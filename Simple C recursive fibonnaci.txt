@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+long long RecursiveFib(int n)
+{
+   if (n <= 1)
+   {
+      return((long long)n);
+   }
+
+   return(RecursiveFib(n - 1) + RecursiveFib(n - 2));
+}
+
+void main(int argc, char **argv)
+{
+   int i;
+   int high = atoi(argv[1]);
+
+   for (i = 1; i <= high; i++)
+   {
+      printf("%lld\n", RecursiveFib(i));
+   }
+}
