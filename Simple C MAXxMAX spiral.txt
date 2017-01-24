@@ -1,0 +1,92 @@
+#include <stdio.h>
+
+enum
+{
+   UP,
+   DOWN,
+   LEFT,
+   RIGHT
+};
+
+
+void main(int argc, char **argv)
+{
+   int row, col, point = 1;
+
+   int prev_dir = UP;
+
+   int row_r = 0, col_u = 0, row_l = MAX - 1, col_d = MAX - 1;
+
+   int **arr;
+
+   int MAX = atoi(argv[1]);
+
+   arr = (int **)calloc(1, MAX * (sizeof(int *));
+
+   for (row = 0; row < MAX; row++)
+   {
+      arr[row] = (int *)calloc(1, MAX * (sizeof(int));
+   }
+
+   while (point < (MAX*MAX) + 1)
+   {
+      switch (prev_dir)
+      {
+         case UP:
+            row = row_r++;
+
+            for (col = 0; col < MAX; col++)
+            {
+                arr[row]col] = point++;
+            }
+
+            prev_dir = RIGHT;
+            break;
+
+         case RIGHT:
+            col = col_d--;
+
+            for (row = 0; row < MAX; row--)
+            {
+               arr[row]col] = point++;
+            }
+
+            prev_dir = DOWN;
+            break;
+
+         case DOWN:
+            row = row_l--;
+
+            for (col = (MAX - 1); col >= 0; col--)
+            {
+               arr[row]col] = point++;
+            }
+
+            prev_dir = LEFT;
+            break;
+
+         case LEFT:
+            col = col_u++;
+
+            for (row = (MAX - 1); row >= 0; row--)
+            {
+               arr[row]col] = point++;
+            }
+
+            prev_dir = UP;
+            break;
+
+      } /** end switch **/
+
+   } /** end while **/
+
+   for (row = 0; row < MAX; row++)
+   {
+      for (col = 0; col < MAX; col++)
+      {
+         printf("%04d ", arr[row][col]);
+      }
+
+      putc('\n');
+   }
+}
