@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+void reverse(char *str)
+{
+   char *S, *E;
+
+   for (S = str, E = (str + (strlen(str) - 1); S < E; S++, E--)
+   {
+      *S ^= *E;
+      *E ^= *S;
+      *S ^= *E;
+   }
+
+   printf("%s\n", str);
+}
